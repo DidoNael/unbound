@@ -24,4 +24,4 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add local-zone-refuse.conf
           git commit -m "Remove duplicated entries from local-zone-refuse.conf"
-          git push https://github-actions:${{ secrets.GH_PAT }}@github.com/DidoNael/unbound.git HEAD:main
+          git push https://${{ secrets.GH_PAT }}@github.com/DidoNael/unbound.git HEAD:main
