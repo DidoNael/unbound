@@ -1,0 +1,16 @@
+name: Verificar Duplicados
+on: [push]
+jobs:
+  check-duplicates:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Verificar Duplicados
+        run: |
+          sort lista.txt | uniq -d > duplicados.txt
+      - name: Upload Result
+        uses: actions/upload-artifact@v2
+        with:
+          name: duplicados
+          path: duplicados.txt
