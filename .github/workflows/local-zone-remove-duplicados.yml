@@ -5,14 +5,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Verificar e Remover Duplicados
         run: |
           sort local-zone-refuse.conf | uniq -d > duplicados.txt
           sort local-zone-refuse.conf | uniq > local-zone-refuse-cleaned.conf
           mv local-zone-refuse-cleaned.conf local-zone-refuse.conf
       - name: Upload Result
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: duplicados
           path: duplicados.txt
